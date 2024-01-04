@@ -147,43 +147,44 @@ function convertToRomanNumerals(num) {
  *  '1950.2'  => 'one nine five zero point two'
  */
 
-// function convertNumberToString(numberStr) {
-//   const specialWords = { '-': 'minus', '.': 'point', ',': 'point' };
-//   const digitWords = [
-//     'zero',
-//     'one',
-//     'two',
-//     'three',
-//     'four',
-//     'five',
-//     'six',
-//     'seven',
-//     'eight',
-//     'nine',
-//   ];
+function convertNumberToString(numberStr) {
+  const specialWords = { '-': 'minus', '.': 'point', ',': 'point' };
+  const digitWords = [
+    'zero',
+    'one',
+    'two',
+    'three',
+    'four',
+    'five',
+    'six',
+    'seven',
+    'eight',
+    'nine',
+  ];
 
-//   let result = '';
+  let result = '';
 
-//   for (let i = 0; i < numberStr.length; i += 1) {
-//     const currentChar = numberStr[i];
+  for (let i = 0; i < numberStr.length; i += 1) {
+    const currentChar = numberStr[i];
 
-//     switch (currentChar) {
-//       case '-':
-//       case '.':
-//       case ',':
-//         result += `${specialWords[currentChar]} `;
-//         break;
-//       default: {
-//         const digitWord = digitWords[Number(currentChar)];
-//         result += digitWord ? `${digitWord} ` : '';
-//       }
-//     }
-//   }
-//   return result.trim();
-// }
-function convertNumberToString(/* numberStr */) {
-  throw new Error('Not implemented');
+    switch (currentChar) {
+      case '-':
+      case '.':
+      case ',':
+        result += `${specialWords[currentChar]} `;
+        break;
+      default: {
+        const digitWord = digitWords[Number(currentChar)];
+        result += digitWord ? `${digitWord} ` : '';
+      }
+    }
+  }
+  return result.trim();
 }
+
+// function convertNumberToString(/* numberStr */) {
+//   throw new Error('Not implemented');
+// }
 
 /**
  * Determines whether a string is a palindrome.
@@ -203,31 +204,17 @@ function isPalindrome(/* str */) {
 }
 
 // function isPalindrome(str) {
-//   const cleanedStr = str
-//     .split('')
-//     .filter(
-//       (char) =>
-//         (char >= 'a' && char <= 'z') ||
-//         (char >= 'A' && char <= 'Z') ||
-//         (char >= '0' && char <= '9') ||
-//         char === ' '
-//     )
-//     .join('')
-//     .toLowerCase();
+//   const formattedStr = str.replace(/\s/g, '').toLowerCase();
 
-//   if (!cleanedStr) {
-//     return false;
-//   }
-
-//   const len = cleanedStr.length;
-
-//   for (let i = 0; i < len / 2; i += 1) {
-//     if (cleanedStr[i] !== cleanedStr[len - 1 - i]) {
-//       return false;
+//   let isPalindrom = true;
+//   for (let i = 0, j = formattedStr.length - 1; i < j; i += 1, j -= 1) {
+//     if (formattedStr[i] !== formattedStr[j]) {
+//       isPalindrom = false;
+//       break;
 //     }
 //   }
 
-//   return true;
+//   return isPalindrom;
 // }
 
 /**
@@ -244,8 +231,18 @@ function isPalindrome(/* str */) {
  *  'qwerty', 'Q'     => -1
  *  'qwerty', 'p'     => -1
  */
-function getIndexOf(/* str, letter */) {
-  throw new Error('Not implemented');
+
+function getIndexOf(str, letter) {
+  let index = -1;
+
+  for (let i = 0; i < str.length; i += 1) {
+    if (str[i] === letter) {
+      index = i;
+      break;
+    }
+  }
+
+  return index;
 }
 
 /**
@@ -416,6 +413,7 @@ function rotateMatrix(/* matrix */) {
  *  [2, 9, 5, 9]    => [2, 5, 9, 9]
  *  [-2, 9, 5, -3]  => [-3, -2, 5, 9]
  */
+
 function sortByAsc(/* arr */) {
   throw new Error('Not implemented');
 }
@@ -437,6 +435,7 @@ function sortByAsc(/* arr */) {
  *  '012345', 3 => '024135' => '043215' => '031425'
  *  'qwerty', 3 => 'qetwry' => 'qtrewy' => 'qrwtey'
  */
+
 function shuffleChar(/* str, iterations */) {
   throw new Error('Not implemented');
 }
